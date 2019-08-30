@@ -4,6 +4,9 @@
   "description": "Implicity flavored logger for Nest.js service",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "rm -rf lib && tsc -p tsconfig.build.json",
     "lint": "tslint -p tsconfig.json -c tslint.json",
