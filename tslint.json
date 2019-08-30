@@ -1,0 +1,30 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-consistent-codestyle"],
+  "jsRules": {
+    "no-unused-expression": true
+  },
+  "rules": {
+    "quotemark": [true, "single"],
+    "member-access": [false],
+    "ordered-imports": [false],
+    "max-line-length": [true, 150],
+    "member-ordering": [false],
+    "interface-name": [false],
+    "arrow-parens": false,
+    "object-literal-sort-keys": false,
+    "trailing-comma": false,
+    "variable-name": false,
+    "naming-convention": [
+      true,
+      { "type": "default", "format": "camelCase", "leadingUnderscore": "forbid", "trailingUnderscore": "forbid" },
+      { "type":  "enum", "format": "PascalCase", "prefix": "e" },
+      { "type":  "enumMember", "format":  "UPPER_CASE", "leadingUnderscore": "forbid" },
+      { "type":  "class", "format": "PascalCase" },
+      { "type":  "interface", "format": "PascalCase", "prefix":  "I" },
+      { "type":  "member", "modifiers":  "public", "leadingUnderscore": "forbid" },
+      { "type":  "member", "modifiers":  "private", "leadingUnderscore": "require" }
+    ]
+  },
+  "rulesDirectory": []
+}

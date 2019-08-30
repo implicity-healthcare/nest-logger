@@ -1,0 +1,53 @@
+{
+  "name": "@implicity/nest-logger",
+  "version": "1.0.0",
+  "description": "Implicity flavored logger for Nest.js service",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
+    "lint": "tslint -p tsconfig.json -c tslint.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/implicity-healthcare/nest-logger.git"
+  },
+  "author": "Maxime Guedj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/implicity-healthcare/nest-logger/issues"
+  },
+  "homepage": "https://github.com/implicity-healthcare/nest-logger#readme",
+  "dependencies": {
+    "@nestjs/common": "^6.6.3",
+    "chalk": "^2.4.2",
+    "moment": "^2.24.0",
+    "rxjs": "^6.5.2"
+  },
+  "devDependencies": {
+    "@types/node": "^11.13.4",
+    "jest": "^24.9.0",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-consistent-codestyle": "^1.15.1",
+    "typescript": "^3.4.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "files": [
+    "dist"
+  ]
+}
