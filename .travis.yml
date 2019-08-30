@@ -8,6 +8,7 @@ before_script:
 script:
 - npm test
 deploy:
+  skip_cleanup: true
   provider: npm
   email: maxime.guedj@implicy.fr
   api_key:
