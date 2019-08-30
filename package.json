@@ -6,7 +6,9 @@
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
-    "lint": "tslint -p tsconfig.json -c tslint.json"
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "echo 1",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
