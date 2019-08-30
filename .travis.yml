@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- stable
+install:
+- npm install
+before_script:
+- npm run build
+script:
+- npm test
+deploy:
+  provider: npm
+  email: maxime.guedj@implicy.fr
+  api_key:
+    secure: NO/oiFTGbZsUeJRkRqx0LbSYY91JjTNHRs0ICfGXYq61Hbgb7FQurZO2+49u4jMkrlv4E9oP6yEnbfCvaIZ5VuS97ezFYWCgQDDX1c7WQVd47OngVi3LdQDc8CMy8QhiK/7ogjePjxKaYQOklbsZDfChn/QEB5+oX/6do5fQ6XwRNlRpMQGmYrOAFuCIphkJobfurC9qbfByEsOBxZnDNBIegxeflqvoyye+VnE/O86ACzGGmldpycdHncR32lF/reszuapELpKaKYIt9QJfhx17EU4wDcY0gzOle5H4uS/ZWeKzKj3H5FMOV31uEyxpQi5efaD922c8okZYmgJMjdbvrTOdZKhUONePUK/NMFKLLWLLD7IOJCGoHp5Mfqf49fdiUU5A7DCHiwO0RLzfF1ZqrdimabXNa2Cxnr26B8jfZswdZs6SDWPMyv8YcuqCqDdZEuzs5hRNJ6qNFV+dYPk04JaTIrlotvLxwJ2Yb089UC/PFeZNMNG4GmSCNJGoWoTf98h4swdxTzOZXpqvot9F+3MeJce9RcRyORbMYQTjFYQoAZszg2l2kmX/E6rIh539hGjHVNY+MSM9mqeI9VnFvTG52VqGStpV5vR6/KuEpkNNpZzfxiZvXkc19aZDdgu3SshvVmi2XsgObX03AvhXOCL12PRjlFVo4ciZeuE=
+  on:
+    tags: true
+    repo: implicity-healthcare/nest-logger
