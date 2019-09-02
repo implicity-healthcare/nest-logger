@@ -17,8 +17,8 @@ export class LoggingInterceptor implements NestInterceptor {
     const response = context.switchToHttp().getResponse();
 
     const now = Date.now();
-    const url = request.url;
-    const method = request.method;
+    const url = request.url || request.req.url;
+    const method = request.method || request.req.method;
     const controllerName = context.getClass().name;
 
     return next
@@ -31,7 +31,7 @@ export class LoggingInterceptor implements NestInterceptor {
             url,
             method,
             context: controllerName,
-            statusCode: response.statusCode
+            statusCode: response.statusCode || response.res.statusCode
           });
         })
       );
