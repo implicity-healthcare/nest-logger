@@ -1,7 +1,7 @@
 import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Logger } from './logger';
-import { tap } from 'rxjs/operators';
+import { tap, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -33,6 +33,17 @@ export class LoggingInterceptor implements NestInterceptor {
             context: controllerName,
             statusCode: response.statusCode || response.res.statusCode
           });
+        }),
+        catchError((err) => {
+          const elapsedTime = Date.now() - now;
+          this._logger.handleHttpRequest({
+            elapsedTime,
+            url,
+            method,
+            context: controllerName,
+            statusCode: err.status || 500
+          });
+          return throwError(err);
         })
       );
   }
