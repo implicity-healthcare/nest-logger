@@ -185,15 +185,19 @@ export class Logger implements ILogger {
    * @param requestData Http request data
    */
   public handleHttpRequest(requestData: { elapsedTime: number, url: string, method: string, statusCode: number, context: string }) {
-    if (this._productionMode) {
-      return this.info(requestData);
-    }
-
-    const methodStr = chalk.bold(requestData.method);
-    const urlStr = chalk.yellowBright.bold(requestData.url);
-    const statusCode = Logger._buildStatusCodeStr(requestData.statusCode);
+    const methodStr = this._productionMode ? requestData.method : chalk.bold(requestData.method);
+    const urlStr = this._productionMode ? requestData.url : chalk.yellowBright.bold(requestData.url);
+    const statusCode = this._productionMode ? requestData.statusCode : Logger._buildStatusCodeStr(requestData.statusCode);
 
     const message = `${methodStr} ${urlStr} => ${statusCode} (${requestData.elapsedTime} ms)`;
+
+    if (this._productionMode) {
+      return this.info({
+        ...requestData,
+        message
+      });
+    }
+
     this.info({
       context: requestData.context,
       message
